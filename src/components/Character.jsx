@@ -1,4 +1,4 @@
-import { FaAngleRight } from "react-icons/fa";
+import { MdSend } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 const Character = ({characters}) => {
@@ -10,7 +10,7 @@ const Character = ({characters}) => {
         <img src={character.img} alt=""/>
         <h2>{character.name}</h2>
         <Link to={`/profile/${character.char_id}`}>
-        <button className="btn">See More <FaAngleRight style={iconStyle}/></button>
+        <button className="btn">See More <MdSend style={iconStyle}/></button>
         </Link>
         </div>
       ))}
@@ -20,8 +20,8 @@ const Character = ({characters}) => {
 
 const iconStyle = {
   position: 'absolute',
-  top: '30%',
-  marginLeft: '3px'
+  top: '32%',
+  marginLeft: '5px'
 }
 
 export default Character

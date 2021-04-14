@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useParams, Link } from 'react-router-dom';
 import Loading from './Loading';
+import Error from './Error'
 
 const CharacterDetails = () => {
   const [loading, setLoading] = useState(false);
@@ -32,11 +33,11 @@ const CharacterDetails = () => {
 
   return (
     <>
-      {loading && <Loading />}
-      {err && <h1>Sorry, something went wrong fetching that data</h1>}
+        {loading && <Loading />}
+        {err && <Error />}
         {profile && profile.map((profile)=>(
-          <section key={profile.char_id} className="character-card">
-            <div className="card-image">
+          <section className="character-card">
+            <div className="card-image" key={profile.char_id}>
               <img src={profile.img} alt={profile.name}/>
               <h2>{profile.name}</h2>
               <h3>Birthday : {profile.birthday}</h3>

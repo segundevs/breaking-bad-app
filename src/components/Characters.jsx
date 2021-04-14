@@ -1,11 +1,12 @@
 import Character from './Character';
 import Loading from './Loading';
+import Error from './Error';
 
 const Characters = ({loading, characters, err}) => {
   return (
     <div>
       {loading && <Loading />}
-      {err && <h2>Something went wrong</h2>}
+      {err && <Error />}
       {characters && <Character characters={characters} />}
     </div>
   )

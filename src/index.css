@@ -5,11 +5,13 @@
 }
 
 body {
-  background: url("./img/bg.jpg") no-repeat center center fixed;
-  color: #fff;
+  background: #272b35;
+  /* url("./img/bg.jpg") no-repeat center center fixed; */
+  color: rgb(65, 2, 12);
 }
 
 .header-logo {
+  margin-top: 20px;
   text-align: center;
   height: 150px;
 }
@@ -22,20 +24,25 @@ body {
 .card {
   width: 400px;
   height: 400px;
-  margin: 10px;
-  border: 1px solid #fff;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #2f313e;
+  border-radius: 15px;
 }
 
 .card img {
-  width: 100%;
-  height: 80%;
+  width: 80%;
+  height: 75%;
+  margin-bottom: 15px;
   object-position: top;
+  border-radius: 50%;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
+  margin: 20px auto;
   color: #fff;
 }
 
@@ -49,17 +56,19 @@ body {
   position: relative;
   border: none;
   width: 100px;
-  padding: 0.6rem 0.3rem;
+  margin: 10px 5px;
+  padding: 0.6rem 0.8rem;
   border-radius: 0.3rem;
   cursor: pointer;
   outline: none;
-  background-color: #f1356d;
+  background-color: #eb7a4f;
   color: #fff;
+  text-align: left;
   transition: background-color 0.5s ease-in-out;
 }
 
 .btn:hover {
-  background-color: #d1154d;
+  background-color: #d6673a;
 }
 
 form {
@@ -71,13 +80,18 @@ form {
 .input-field {
   margin: 2rem auto;
   padding: 0.6rem;
-  border: 1px solid #f1356d;
+  outline: none;
+  border: none;
   border-radius: 0.3rem;
   width: 50%;
 }
 
+.input-field:focus {
+  border: 1px solid #eb7a4f;
+}
+
 .character-card {
-  background-color: #070a07;
+  background-color: #2f313e;
   padding: 30px;
   border-radius: 10px;
   display: flex;
@@ -119,4 +133,30 @@ form {
   margin-bottom: 10px;
   line-height: 1.3;
   letter-spacing: 1.2px;
+}
+
+.error-container {
+  position: relative;
+  width: 80%;
+  height: 450px;
+  margin: 10px auto;
+}
+
+.error-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.error-container h1 {
+  align-self: center;
+  position: absolute;
+  top: 40%;
+  right: 40%;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+  }
 }

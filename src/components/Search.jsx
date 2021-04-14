@@ -10,6 +10,7 @@ const Search = ({getChar}) => {
   return (
     <form>
       <input className="input-field" 
+      placeholder="Search characters"
       type="text"
       value={item}
       onChange={(e)=> handleChange(e.target.value)}
