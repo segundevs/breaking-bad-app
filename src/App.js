@@ -37,7 +37,7 @@ function App() {
 
   
   return (
-    <div className="App">
+    <div className="container">
       <Router>
       <Header />
       <Search getChar={(query)=>{setChar(query)}} />
