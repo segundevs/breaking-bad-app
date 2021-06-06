@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TiArrowBack } from "react-icons/ti";
 import { useParams, Link } from 'react-router-dom';
-import Loading from './Loading';
-import Error from './Error'
+import Loading from '../components/Loading';
+import Error from '../components/Error'
 
 const CharacterDetails = () => {
   const [loading, setLoading] = useState(false);

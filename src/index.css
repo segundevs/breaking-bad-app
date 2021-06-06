@@ -10,7 +10,7 @@ body {
   font-family: "Roboto", sans-serif;
   background: #272b35;
   /* url("./img/bg.jpg") no-repeat center center fixed; */
-  color: rgb(65, 2, 12);
+  color: #ffffff;
   scroll-behavior: smooth;
 }
 
@@ -175,6 +175,11 @@ form {
   font-size: 18px;
   text-align: center;
   align-self: center;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
 @media only screen and (max-width: 768px) {

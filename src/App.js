@@ -1,55 +1,37 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Header from './components/Header';
 import Search from './components/Search';
-import Characters from './components/Characters';
-import CharacterDetails from './components/CharacterDetails';
+import Characters from './pages/Characters';
+import CharacterDetails from './pages/CharacterDetails';
+import FavoritesContextProvider from './contexts/FavoritesContext/FavoritesContext';
+import Favorites from './pages/Favorites';
+import DataContextProvider from './contexts/DataContext/DataContext';
+import Error from './components/Error';
+import Welcome from './pages/Welcome';
 
 function App() {
 
-  const [loading, setLoading] = useState(false);
-  const [characters, setCharacters] = useState();
-  const [char, setChar] = useState('');
-  const [err, setErr] = useState();
-
-  useEffect(()=>{
-    
-    setLoading(true)
-   const fetchChar = async ()=>{
-     try{
-    const result = await axios.get(`https://www.breakingbadapi.com/api/characters?name=${char}`);
-    const data = await result.data;
-   
-      setLoading(false);
-      setCharacters(data);
-     } catch(err){
-      setLoading(false);
-      setErr(err);
-     // console.log(err.name);
-     }
-      
-   }
-   fetchChar()
-          
-  }, [char])
-
+  
 
   
   return (
     <div className="container">
-      <Router>
-      <Header />
-      <Search getChar={(query)=>{setChar(query)}} />
-      <Switch>
-        <Route exact path="/">
-     <Characters loading={loading} characters={characters} err={err}/>
-      </Route>
-      <Route path="/profile/:id">
-        <CharacterDetails />
-      </Route>
-     </Switch>
-     </Router>
+      <DataContextProvider>
+        <FavoritesContextProvider>
+          <Router>
+              <Header />
+              <Search />
+            <Switch>
+              <Route path="/" component={Welcome} exact/>
+              <Route path="/home" component={Characters} />
+              <Route path="/profile/:id" component={CharacterDetails} />
+              <Route path="/favorites" component={Favorites} /> 
+              <Route path="*" component={Error} /> 
+            </Switch>
+          </Router>
+      </FavoritesContextProvider>
+     </DataContextProvider>
     </div>
   );
 }

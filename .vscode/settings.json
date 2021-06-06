@@ -1,0 +1,8 @@
+{
+  "chronicler.recording-defaults": {
+    "chronicler.recording-defaults.animatedGif": true,
+    "flags": null,
+    "fps": 10,
+    "countdown": 5
+  }
+}

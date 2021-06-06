@@ -1,3 +1,4 @@
+import React from 'react';
 import svg from '../img/warning.svg';
 import { FaHome } from "react-icons/fa";
 import {  Link } from 'react-router-dom';

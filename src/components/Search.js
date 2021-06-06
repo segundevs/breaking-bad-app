@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { DataContext } from '../contexts/DataContext/DataContext';
 
-const Search = ({getChar}) => {
+const Search = () => {
+  const { getChar } = useContext(DataContext);
 
   const [item, setItem] = useState('');
    const handleChange = (query) => {
