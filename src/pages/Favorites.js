@@ -29,7 +29,7 @@ const Favorites = () => {
         <Link to={`/profile/${fav.char_id}`}>
         <button className="btn">See More <MdSend style={iconStyle}/></button>
         </Link>
-        <button className="btn" onClick={()=>{handleOnClick(fav)}}>Remove<MdFavorite style={favStyle}/></button>
+        <button className="btn" onClick={()=>{handleOnClick(fav)}}>{isUserFavorites(fav.char_id) ? 'Remove' : 'Add'}<MdFavorite style={favStyle}/></button>
         </div>
       ))}
     </div>

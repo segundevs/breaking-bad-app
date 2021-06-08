@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { MdSend, MdFavorite } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { DataContext } from '../contexts/DataContext/DataContext';
@@ -10,7 +10,8 @@ const {characters} = useContext(DataContext);
 const { addUserFavorites, removeUserFavorites, isUserFavorites} = useContext(FavoritesContext);
 
 //Store the text on the button in a state
-const [title, setTitle] = useState(true);
+
+
 
 //Handle click event from Adding and Removing from favorites
 const handleOnClick = (param) => {
@@ -20,12 +21,11 @@ const handleOnClick = (param) => {
 
   //Remove it from the array if it's already a userFavorite
   if(fav){
+ //   setTitle('Add')
     removeUserFavorites(param.char_id)
-    setTitle('Add')
   }else{
     //Add it to the array if it's not already a userFavorite and change text to 'Remove'
     addUserFavorites(param)
-    setTitle(prevTitle => !prevTitle)
     } 
   } 
  
@@ -40,7 +40,7 @@ const handleOnClick = (param) => {
         <Link to={`/profile/${character.char_id}`}>
         <button className="btn">See More <MdSend style={iconStyle}/></button>
         </Link>
-        <button className="btn" onClick={(e)=>{handleOnClick(character)}}>{!title ? 'Remove' : 'Add'}<MdFavorite style={favStyle}/></button>
+        <button className="btn" onClick={(e)=>{handleOnClick(character)}}>{isUserFavorites(character.char_id) ? 'Remove' : 'Add'}<MdFavorite style={favStyle}/></button>
         </div>
       ))}
     </div>
