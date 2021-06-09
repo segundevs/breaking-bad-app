@@ -3,8 +3,8 @@ import React, { createContext, useState } from 'react';
 export const FavoritesContext = createContext();
 
 const FavoritesContextProvider = ({children}) => {
+  
   const [userFavorites, setUserFavorites] = useState([]);
-
 
   const addUserFavorites = (favCharacter) => {
     const newFavorites = [...userFavorites, favCharacter]

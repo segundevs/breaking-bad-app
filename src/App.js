@@ -4,11 +4,10 @@ import Header from './components/Header';
 import Search from './components/Search';
 import Characters from './pages/Characters';
 import CharacterDetails from './pages/CharacterDetails';
-import FavoritesContextProvider from './contexts/FavoritesContext/FavoritesContext';
 import Favorites from './pages/Favorites';
-import DataContextProvider from './contexts/DataContext/DataContext';
 import Error from './components/Error';
 import Welcome from './pages/Welcome';
+import { GlobalStyle, Wrapper } from './Styles/GlobalStyle';
 
 function App() {
 
@@ -16,9 +15,8 @@ function App() {
 
   
   return (
-    <div className="container">
-      <DataContextProvider>
-        <FavoritesContextProvider>
+    <Wrapper>
+      <GlobalStyle />
           <Router>
               <Header />
               <Search />
@@ -30,9 +28,7 @@ function App() {
               <Route path="*" component={Error} /> 
             </Switch>
           </Router>
-      </FavoritesContextProvider>
-     </DataContextProvider>
-    </div>
+    </Wrapper>
   );
 }
 

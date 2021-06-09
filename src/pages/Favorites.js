@@ -1,7 +1,30 @@
 import React, { useContext } from 'react';
-import { MdSend, MdFavorite } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import CharacterCard from '../components/CharacterCard';
 import { FavoritesContext } from '../contexts/FavoritesContext/FavoritesContext';
+import { GridContainer } from '../Styles/Character.style';
+import styled from 'styled-components';
+import { ArrowBack } from '../Styles/Button.style';
+
+const Heading = styled.h1`
+  text-align: center;
+  margin: 20px auto;
+  line-height: 1.8;
+
+@media only screen and (max-width: 768px){
+  font-size: 18px;
+}
+`
+
+const HomeLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  position: fixed;
+  bottom: 0;
+  z-index: -10;
+  right: ${props => props.rightPosition ? props.rightPosition : '0'};
+
+`
 
 const Favorites = () => {
   
@@ -10,7 +33,6 @@ const Favorites = () => {
   
   
   const handleOnClick = (param) => {
-  
     const fav = isUserFavorites(param.char_id)
   
     if(fav){
@@ -20,36 +42,18 @@ const Favorites = () => {
 
   const { userFavorites} = useContext(FavoritesContext)
   return (
-    <div>
-      <h1>favorites</h1>
+    <>
+    <Heading>You currently have {userFavorites.length} favorite characters</Heading>
+    <GridContainer>
       {userFavorites.map((fav)=>(
-        <div className="card" key={fav.char_id}>
-        <img src={fav.img} alt=""/>
-        <h2>{fav.name}</h2>
-        <Link to={`/profile/${fav.char_id}`}>
-        <button className="btn">See More <MdSend style={iconStyle}/></button>
-        </Link>
-        <button className="btn" onClick={()=>{handleOnClick(fav)}}>{isUserFavorites(fav.char_id) ? 'Remove' : 'Add'}<MdFavorite style={favStyle}/></button>
-        </div>
+        <CharacterCard character={fav} handleOnClick={handleOnClick} isUserFavorites={isUserFavorites}/>
       ))}
-    </div>
+    </GridContainer>
+    <HomeLink to="/" rightPosition="40%">Go home <ArrowBack rightPosition="100%"/></HomeLink>
+    </>
   )
 }
 
-const iconStyle = {
-  position: 'absolute',
-  top: '32%',
-  marginLeft: '5px'
-}
 
-const favStyle = {
-  color: '#fff',
-  position: 'absolute',
-  fontSize: '30px',
-  right: '5%',
-  bottom: '5%'
-}
 
 export default Favorites
-
-// <Character character={userFavorites}/>

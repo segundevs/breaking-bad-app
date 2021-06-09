@@ -1,64 +1,32 @@
 import React, { useContext } from 'react';
-import { MdSend, MdFavorite } from "react-icons/md";
-import { Link } from 'react-router-dom';
 import { DataContext } from '../contexts/DataContext/DataContext';
 import { FavoritesContext } from '../contexts/FavoritesContext/FavoritesContext';
+import { GridContainer } from '../Styles/Character.style';
+import CharacterCard from './CharacterCard';
 
 const Character = () => {
 const {characters} = useContext(DataContext);
-//Get functions to check userFavorites array, add to userFavorites array, remove from userFavorites array
 const { addUserFavorites, removeUserFavorites, isUserFavorites} = useContext(FavoritesContext);
 
-//Store the text on the button in a state
-
-
-
-//Handle click event from Adding and Removing from favorites
 const handleOnClick = (param) => {
-
-  //First check if the character is already in the userFavorites array
   const fav = isUserFavorites(param.char_id)
 
-  //Remove it from the array if it's already a userFavorite
   if(fav){
- //   setTitle('Add')
     removeUserFavorites(param.char_id)
   }else{
-    //Add it to the array if it's not already a userFavorite and change text to 'Remove'
     addUserFavorites(param)
     } 
   } 
  
-
- 
   return (
-    <div className="grid-container">
+    <GridContainer>
       {characters && characters.map((character)=>(
-        <div className="card" key={character.char_id}>
-        <img src={character.img} alt=""/>
-        <h2>{character.name}</h2>
-        <Link to={`/profile/${character.char_id}`}>
-        <button className="btn">See More <MdSend style={iconStyle}/></button>
-        </Link>
-        <button className="btn" onClick={(e)=>{handleOnClick(character)}}>{isUserFavorites(character.char_id) ? 'Remove' : 'Add'}<MdFavorite style={favStyle}/></button>
-        </div>
+        <CharacterCard character={character} handleOnClick={handleOnClick} isUserFavorites={isUserFavorites}/>
       ))}
-    </div>
+    </GridContainer>
   )
 }
 
-const iconStyle = {
-  position: 'absolute',
-  top: '32%',
-  marginLeft: '5px'
-}
 
-const favStyle = {
-  color: '#fff',
-  position: 'absolute',
-  fontSize: '30px',
-  right: '5%',
-  bottom: '5%'
-}
 
 export default Character

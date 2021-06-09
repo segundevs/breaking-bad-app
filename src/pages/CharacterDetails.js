@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { TiArrowBack } from "react-icons/ti";
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 import Error from '../components/Error'
+import { CardImg, CardWrapper, CharacterCard, DetailsCard } from '../Styles/CharacterDetails.style';
+import { ArrowBack, StyledLink } from '../Styles/Button.style';
 
 const CharacterDetails = () => {
   const [loading, setLoading] = useState(false);
@@ -36,33 +37,24 @@ const CharacterDetails = () => {
         {loading && <Loading />}
         {err && <Error />}
         {profile && profile.map((profile)=>(
-          <section className="character-card">
-            <div className="card-image" key={profile.char_id}>
-              <img src={profile.img} alt={profile.name}/>
+          <CharacterCard>
+            <CardWrapper key={profile.char_id}>
+              <CardImg src={profile.img} alt={profile.name}/>
               <h2>{profile.name}</h2>
               <h3>Birthday : {profile.birthday}</h3>
-            </div>
-            <div className="details-card">
+            </CardWrapper>
+            <DetailsCard>
               <h1>{profile.category}</h1>
               <h2>Season Appearance: {profile.appearance}</h2>
               <h2>Occupation: <span>{profile.occupation.map((occup)=>(<h4 key={occup.index}>{occup}</h4>))}</span></h2>
               <h2>Portrayed: {profile.portrayed}</h2>
               <h2>Status: {profile.status}</h2>
-            </div>
-            <Link className="btn" to="/" style={linkStyle}><TiArrowBack /> Go back</Link>
-          </section>  
+            </DetailsCard>
+            <StyledLink to="/" ><ArrowBack />Go back</StyledLink>
+          </CharacterCard>  
         ))} 
     </>
   )
-}
-
-const linkStyle = {
-  color: '#fff',
-  textDecoration: 'none',
-  width: '12%',
-  position: 'absolute',
-  bottom: '0',
-  right: '0'  
 }
 
 export default CharacterDetails
