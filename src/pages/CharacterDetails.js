@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 import Error from '../components/Error'
-import { CardImg, CardWrapper, CharacterCard, DetailsCard } from '../Styles/CharacterDetails.style';
-import { ArrowBack, StyledLink } from '../Styles/Button.style';
+import { CardImg, CharacterCard, DetailsCard, StyledHeading, StyledTagged } from '../Styles/CharacterDetails.style';
+import { StyledLink } from '../Styles/Button.style';
 
 const CharacterDetails = () => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const CharacterDetails = () => {
    
       setLoading(false)
       setProfile(data)
-    // console.log(result.data)
+     console.log(result.data)
      } catch(err) {
        setLoading(false)
        setErr(err);
@@ -37,20 +37,18 @@ const CharacterDetails = () => {
         {loading && <Loading />}
         {err && <Error />}
         {profile && profile.map((profile)=>(
-          <CharacterCard>
-            <CardWrapper key={profile.char_id}>
+          <CharacterCard key={profile.char_id}>
               <CardImg src={profile.img} alt={profile.name}/>
-              <h2>{profile.name}</h2>
-              <h3>Birthday : {profile.birthday}</h3>
-            </CardWrapper>
             <DetailsCard>
-              <h1>{profile.category}</h1>
-              <h2>Season Appearance: {profile.appearance}</h2>
-              <h2>Occupation: <span>{profile.occupation.map((occup)=>(<h4 key={occup.index}>{occup}</h4>))}</span></h2>
-              <h2>Portrayed: {profile.portrayed}</h2>
-              <h2>Status: {profile.status}</h2>
+              <StyledTagged>Name</StyledTagged><StyledHeading>{profile.name}</StyledHeading>
+              <StyledTagged bg="#FFB05A">Born</StyledTagged><StyledHeading>{profile.birthday}</StyledHeading>
+              <StyledTagged bg="#9371F5">Category</StyledTagged><StyledHeading>{profile.category}</StyledHeading>
+              <StyledTagged bg="#F88E8E">Season Appearance</StyledTagged><StyledHeading>{profile.appearance}</StyledHeading>
+              <StyledTagged bg="#FEB548">Occupation</StyledTagged> <StyledHeading>{profile.occupation.map((occup)=>(<h4 key={occup.index}>{occup}</h4>))}</StyledHeading>
+              <StyledTagged bg="#eb7a4f">Portrayed</StyledTagged><StyledHeading>{profile.portrayed}</StyledHeading>
+              <StyledTagged>Status</StyledTagged><StyledHeading>{profile.status}</StyledHeading>
             </DetailsCard>
-            <StyledLink to="/" ><ArrowBack />Go back</StyledLink>
+            <StyledLink to="/">Go back</StyledLink>
           </CharacterCard>  
         ))} 
     </>

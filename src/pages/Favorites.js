@@ -23,7 +23,6 @@ const HomeLink = styled(Link)`
   bottom: 0;
   z-index: -10;
   right: ${props => props.right ? props.right : '0'};
-
 `
 
 const Favorites = () => {
@@ -46,7 +45,12 @@ const Favorites = () => {
     <Heading>You currently have {userFavorites.length} favorite characters</Heading>
     <GridContainer>
       {userFavorites.map((fav)=>(
-        <CharacterCard character={fav} handleOnClick={handleOnClick} isUserFavorites={isUserFavorites}/>
+        <CharacterCard 
+        key={fav.char_id} 
+        character={fav} 
+        handleOnClick={handleOnClick} 
+        isUserFavorites={isUserFavorites}
+        />
       ))}
     </GridContainer>
     <HomeLink to="/" right="40%">Go home <ArrowBack right="100%"/></HomeLink>

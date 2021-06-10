@@ -1,32 +1,51 @@
 import React from 'react';
-import svg from '../img/warning.svg';
+import errorSVG from '../img/404-white.svg';
 import styled from 'styled-components';
-import { FaHome } from "react-icons/fa";
-import { StyledLink } from '../Styles/Button.style';
+import { Link } from 'react-router-dom';
+import { ArrowBack } from '../Styles/Button.style';
 
 const StyledContainer = styled.div`
   display: flex;
-  position: relative;
-  background-color: #fff;
-  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
   width: 50%;
-  height: 450px;
-  margin: 10px auto;
+  height: 80%;
+  margin: 20px auto;
+
+  @media only screen and (max-width: 768px){
+    width: 100%;
+    height: 100%;
+    
+  }
 `
 
 const Heading = styled.h2`
-  color: #272b35;
+  color: #ffffff;
   font-size: 18px;
+  margin: 10px auto;
   text-align: center;
-  align-self: center;
 `
 
 const ErrorImg = styled.img`
   width: 70%;
   height: 70%;
-  margin: auto 20px;
+  margin: 10px auto;
 `
 
+const HomeLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  position: fixed;
+  bottom: 20%;
+  right: ${props => props.right ? props.right : '0'};
+
+  @media only screen and (max-width: 768px){
+    right: ${props => props.smallright ? props.smallright : '0'};
+    bottom: 25%;
+  }
+`
+/*
 const StyledArrow = styled(FaHome)`
   color: #fff;
   text-decoration: none;
@@ -35,16 +54,17 @@ const StyledArrow = styled(FaHome)`
   bottom: 0;
   right: 40%;
 `
+*/
 
 const Error = () => {
 
   return (
     <StyledContainer>
-      <Heading>You look lost, let's get you back home</Heading>
-      <ErrorImg src={svg} alt="error"/>
-      <StyledLink to="/">
-        <StyledArrow />Go home
-      </StyledLink>
+      <ErrorImg src={errorSVG} alt="error"/>
+      <Heading>Ooops! Page not found</Heading>
+      <HomeLink right="46%" smallright="40%" to="/">Go home
+      <ArrowBack right="100%"/>
+      </HomeLink>
     </StyledContainer>
   )
 }
