@@ -16,18 +16,15 @@ export const Button = styled.button`
   color: #fff;
   text-align: center;
   transition: background-color 0.5s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     background-color: #d6673a;
-    outline: none;
-    border: none;
   }
 
-  &:focus {
+  &:focus-within {
     background-color: #fff;
     color: #eb7a4f;
-    outline: none;
-    border: none;
   } 
 `
 
@@ -40,16 +37,16 @@ export const StyledLink = styled(Link)`
   padding: 6px 10px;
   border-radius: 20px;
   border: ${props => props.b ?props.b : 'none'};
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     color: #eb7a4f;
-    outline: none;
     border: ${props => props.bhover ?props.bhover : 'none'};
   }
 
   &:focus {
-    outline: none;
-    border: ${props => props.borderFocus ?props.borderFocus : 'none'};
+    color: #eb7a4f;
+    border: ${props => props.borderfocus ?props.borderfocus : 'none'};
   }
 
 
@@ -87,5 +84,5 @@ export const ArrowBack = styled(TiArrowBack)`
   width: 30%;
   position: absolute;
   bottom: 10%;
-  right: ${props => props.rightPosition ?props.rightPosition : '0'};
+  right: ${props => props.right ?props.right : '0'};
 `

@@ -1,14 +1,33 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const FavoritesContext = createContext();
 
 const FavoritesContextProvider = ({children}) => {
-  
+
   const [userFavorites, setUserFavorites] = useState([]);
 
+  
+
+  useEffect(() => {
+    const favoritesList = localStorage.getItem("favorites");
+
+    // fetch favorites users from local storage
+    favoritesList !== null
+      ? setUserFavorites(JSON.parse(favoritesList))
+      : localStorage.setItem("favorites", JSON.stringify(userFavorites))
+
+    }, []);
+  
+    
+
+    
+
   const addUserFavorites = (favCharacter) => {
-    const newFavorites = [...userFavorites, favCharacter]
-    setUserFavorites(newFavorites)  
+    const newFavorites = [...userFavorites, favCharacter];
+    setUserFavorites(newFavorites);
+
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    console.log(localStorage.setItem('favorites', JSON.stringify(newFavorites)));
   };
 
   const removeUserFavorites = (id) => {

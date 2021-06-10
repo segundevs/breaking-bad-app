@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <HeaderImg src={logo} alt="Breaking Bad"/>
-      <StyledLink b="1px solid #eb7a4f" bhover="1px solid #fff" borderFocus="1px solid #fff" to='/favorites'>Favorites</StyledLink>
+      <StyledLink b="1px solid #eb7a4f" bhover="1px solid #fff" borderfocus="1px solid #fff" to='/favorites'>Favorites</StyledLink>
     </StyledHeader>
   )
 }

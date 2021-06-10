@@ -8,7 +8,7 @@ import { ArrowBack } from '../Styles/Button.style';
 
 const Heading = styled.h1`
   text-align: center;
-  margin: 20px auto;
+  margin: 10px auto;
   line-height: 1.8;
 
 @media only screen and (max-width: 768px){
@@ -22,7 +22,7 @@ const HomeLink = styled(Link)`
   position: fixed;
   bottom: 0;
   z-index: -10;
-  right: ${props => props.rightPosition ? props.rightPosition : '0'};
+  right: ${props => props.right ? props.right : '0'};
 
 `
 
@@ -49,7 +49,7 @@ const Favorites = () => {
         <CharacterCard character={fav} handleOnClick={handleOnClick} isUserFavorites={isUserFavorites}/>
       ))}
     </GridContainer>
-    <HomeLink to="/" rightPosition="40%">Go home <ArrowBack rightPosition="100%"/></HomeLink>
+    <HomeLink to="/" right="40%">Go home <ArrowBack right="100%"/></HomeLink>
     </>
   )
 }

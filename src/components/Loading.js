@@ -3,15 +3,20 @@ import styled from 'styled-components';
 
 const StyledLoader = styled.div`
   position: absolute;
-  left: 40%;
-  top: 40%;
+  left: 50%;
+  top: 50%;
+
+  @media only screen and (max-width: 768px){
+    left: 40%;
+    top: 40%;
+  }
 `
 
 const Loading = () => {
   return (
     <StyledLoader>
       <Loader className="loader"
-        type="TailSpin"
+        type="BallTriangle"
         color="#fff"
         height={100}
         width={100}
