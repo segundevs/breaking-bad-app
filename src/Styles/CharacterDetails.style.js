@@ -58,7 +58,7 @@ export const StyledTagged = styled.span`
   padding: 3px 8px;
   background-color: transparent;
   border-radius: 18px;
-  border: 1px solid green;
+  border: 1px solid #66f1e1;
 `
 
 export const StyledHeading = styled.h2`

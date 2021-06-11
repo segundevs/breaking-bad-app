@@ -17,8 +17,6 @@ const FavoritesContextProvider = ({children}) => {
       : localStorage.setItem("favorites", JSON.stringify(userFavorites))
 
     }, []);
-  
-    
 
     
 
