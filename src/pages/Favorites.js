@@ -53,7 +53,7 @@ const Favorites = () => {
         />
       ))}
     </GridContainer>
-    <HomeLink to="/" right="40%">Go home <ArrowBack right="100%"/></HomeLink>
+    <HomeLink to="/home" right="40%">Go home <ArrowBack right="100%"/></HomeLink>
     </>
   )
 }

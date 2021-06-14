@@ -54,7 +54,7 @@ const CharacterDetails = () => {
               <StyledTag>Status</StyledTag>
                 <StyledHeading>{profile.status}</StyledHeading>
             </DetailsCard>
-            <StyledLink to="/">Go back</StyledLink>
+            <StyledLink to="/home">Go back</StyledLink>
           </CharacterCard>  
         ))} 
     </>
