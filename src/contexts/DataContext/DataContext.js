@@ -22,7 +22,6 @@ const DataContextProvider = ({children}) => {
      } catch(err){
       setLoading(false);
       setErr(err);
-     // console.log(err.name);
      }
       
    }

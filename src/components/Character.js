@@ -21,7 +21,7 @@ const handleOnClick = (param) => {
   return (
     <GridContainer>
       {characters && characters.map((character)=>(
-        <CharacterCard character={character} handleOnClick={handleOnClick} isUserFavorites={isUserFavorites}/>
+        <CharacterCard key={character.char_id} character={character} handleOnClick={handleOnClick} isUserFavorites={isUserFavorites}/>
       ))}
     </GridContainer>
   )

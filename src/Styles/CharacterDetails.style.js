@@ -41,16 +41,8 @@ export const DetailsCard = styled.div`
     padding: 20px auto;
   }
 `
-/*
-export const StyledTag = styled.span`
-  background-color: ${props => props.bg ? props.bg : '#66f1e1'};
-  color: #272b35;
-  padding: 8px;
-  border-radius: 10px;
-`
-*/
 
-export const StyledTagged = styled.span`
+export const StyledTag = styled.span`
   font-size: 18px;
   font-weight: 400;
   text-decoration: none;
