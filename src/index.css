@@ -1,19 +1,1 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
 
-.card-image h2,
-.card-image h3 {
-  margin-bottom: 10px;
-}
-
-.details-card h1,
-.details-card h2,
-.details-card h3,
-.card-image h2,
-.card-image h3 {
-  background-color: #272b35;
-  border-radius: 15px;
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  line-height: 1.3;
-  letter-spacing: 1.2px;
-}

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CharacterCard = styled.section`
+ 
   background-color: #2e333d;
   position: relative;
   display: flex;
@@ -34,11 +35,34 @@ export const CardImg = styled.img`
 `
 
 export const DetailsCard = styled.div`
-    padding: 20px;
+    position: relative;
+    display: flex;
+    width: 80%;
+    padding: 15px 10px;
 
   @media only screen and (max-width: 768px){
     background-color: #2e333d;
     padding: 20px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+export const FlexCardOne = styled.div`
+  width: 50%;
+  margin-left: 10px;
+
+  @media only screen and (max-width: 768px){
+    width: 100%;
+  }
+`
+export const FlexCardTwo = styled.div`
+  width: 50%;
+  margin-left: 10px;
+
+  @media only screen and (max-width: 768px){
+    width: 100%;
   }
 `
 
@@ -54,7 +78,7 @@ export const StyledTag = styled.span`
 `
 
 export const StyledHeading = styled.h2`
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   padding: 5px 0;
   line-height: 1.3;
   letter-spacing: 1.2px;

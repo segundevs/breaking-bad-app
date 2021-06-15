@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledLoader = styled.div`
   position: absolute;
-  left: 50%;
+  left: 45%;
   top: 50%;
 
   @media only screen and (max-width: 768px){

@@ -8,7 +8,7 @@ export const Button = styled.button`
   border: none;
   width: ${props => props.w ? props.w : '100px'};
   margin: 10px 5px 0 5px;
-  padding: 0.6rem 0.8rem;
+  padding: 0.8rem 1rem;
   border-radius: 20px;
   cursor: pointer;
   outline: none;
@@ -26,6 +26,10 @@ export const Button = styled.button`
     background-color: #fff;
     color: #eb7a4f;
   } 
+
+  @media only screen and (max-width: 768px) {
+    padding: 0.6rem 0.8rem;
+  }
 `
 
 export const StyledLink = styled(Link)`
