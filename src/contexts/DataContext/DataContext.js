@@ -5,9 +5,9 @@ export const DataContext = createContext();
 
 const DataContextProvider = ({children}) => {
   const [loading, setLoading] = useState(false);
-  const [characters, setCharacters] = useState();
+  const [characters, setCharacters] = useState([]);
   const [char, setChar] = useState('');
-  const [err, setErr] = useState();
+  const [err, setErr] = useState(null);
 
   useEffect(()=>{
     
